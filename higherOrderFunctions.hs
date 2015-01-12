@@ -70,3 +70,9 @@ elem' y ys = foldl (\acc x -> if x == y then True else acc) False ys
 
 map'' :: (a -> b) -> [a] -> [b]
 map'' f xs = foldr (\x acc -> f x : acc) [] xs
+
+sqrtSums :: Int
+sqrtSums = length (takeWhile (<1000) (scanl1 (+) (map sqrt [1..]))) + 1
+
+dot :: (b -> c) -> (a -> b) -> a -> c
+f `dot` g = \x -> f $ g x
